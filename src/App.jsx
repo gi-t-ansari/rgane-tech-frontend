@@ -1,12 +1,37 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { useSelector } from "react-redux";
+import MainLayout from "./layouts/MainLayout";
+import Profile from "./pages/Profile";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+import CompanyPage from "./pages/CompanyPage";
 
-function App() {
-  const [count, setCount] = useState(0);
+const App = () => {
+  const user = useSelector((state) => state.profile.user);
 
-  return <h1>init</h1>;
-}
+  return (
+    <Router>
+      <MainLayout>
+        <Routes>
+          <Route
+            path="/login"
+            element={user ? <Navigate to="/profile" /> : <Login />}
+          />
+          <Route
+            path="/profile"
+            element={user ? <Profile /> : <Navigate to="/login" />}
+          />
+          <Route path="/company" element={<CompanyPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </MainLayout>
+    </Router>
+  );
+};
 
 export default App;

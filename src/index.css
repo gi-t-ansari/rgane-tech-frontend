@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+body {
+  @apply bg-gray-100 text-gray-900;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition;
+}
+
+.btn-secondary {
+  @apply bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-700 transition;
+}
+
+.input-field {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.card {
+  @apply bg-white shadow-md rounded-lg p-4 transition hover:shadow-lg;
+}
+
+.navbar {
+  @apply bg-white shadow-md py-3 px-6 flex items-center justify-between;
+}
+
+.footer {
+  @apply bg-gray-900 text-white text-center py-4 mt-8;
+}
+
+.centered {
+  @apply flex items-center justify-center;
+}
